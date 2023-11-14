@@ -1,12 +1,12 @@
-﻿// EXEMPLO 1 DA AULA //
+﻿/* // EXEMPLO 1 DA AULA //
 string [] people = {"Maria","João", "José", "Ana"};
 
 foreach(string person in people) // rastrea por toda coleção de pessoas.
 {
     Console.WriteLine(person);
 }
-
-//EXEMPO 2 DA AULA//
+*/
+/* //EXEMPO 2 DA AULA//
 
 for (int i=0; i<=30; i++)
 {
@@ -35,5 +35,21 @@ for (fib3 = fib2+fib1; fib3 <= 100;){
     fib2 = fib3;
     fib3 = fib2 + fib1;
 }
-
 #endregion
+*/
+
+#region string examples
+
+Console.WriteLine("Qual seu nome?}");
+string? name = Console.ReadLine(); // '?' retorna 
+Console.WriteLine("$Hello {name}");
+
+string[] names = name.Split(' ');
+
+foreach(var item in names)
+{
+    Console.WriteLine(item);
+}
+#endregion
+
+
