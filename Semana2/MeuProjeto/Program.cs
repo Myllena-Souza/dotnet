@@ -38,7 +38,7 @@ for (fib3 = fib2+fib1; fib3 <= 100;){
 #endregion
 */
 
-#region string examples
+/*#region string examples
 
 Console.WriteLine("Qual seu nome?}");
 string? name = Console.ReadLine(); // '?' retorna 
@@ -51,5 +51,8 @@ foreach(var item in names)
     Console.WriteLine(item);
 }
 #endregion
+*/
 
+// EXEMPLO LISTA
+/*ctrl i para pedi para o programa criar um codigo*/
 
