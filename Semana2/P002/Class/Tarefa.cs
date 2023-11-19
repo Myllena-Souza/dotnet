@@ -2,10 +2,10 @@
 
 public class Tarefa
 {
-    string Titulo;
-    string Descricao;
-    DateTime DataVencimento;
-    Boolean Conclusao;
+    public string Titulo;
+    public string Descricao;
+    public DateTime DataVencimento;
+    public Boolean Conclusao;
 
     public Tarefa(string _titulo, string _descricao, DateTime _dataVenc, Boolean _conclusao)
     {
@@ -15,7 +15,7 @@ public class Tarefa
         this.Conclusao = _conclusao;
     }
 
-    public void Listar()
+    public void Print()
     {
         Console.WriteLine ("Titulo: " + this.Titulo);
         Console.WriteLine ("Descricao: " + this.Descricao);
