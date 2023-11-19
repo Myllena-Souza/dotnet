@@ -5,9 +5,9 @@ public class Tarefa
     public string Titulo;
     public string Descricao;
     public DateTime DataVencimento;
-    public Boolean Conclusao;
+    public bool Conclusao;
 
-    public Tarefa(string _titulo, string _descricao, DateTime _dataVenc, Boolean _conclusao)
+    public Tarefa(string _titulo, string _descricao, DateTime _dataVenc, bool _conclusao)
     {
         this.Titulo = _titulo;
         this.Descricao = _descricao;
@@ -19,8 +19,7 @@ public class Tarefa
     {
         Console.WriteLine ("Titulo: " + this.Titulo);
         Console.WriteLine ("Descricao: " + this.Descricao);
-        Console.WriteLine ("Titulo: " + this.DataVencimento);
+        Console.WriteLine ("Titulo: " + this.DataVencimento); // alterar para data
     }
-
 
 }
