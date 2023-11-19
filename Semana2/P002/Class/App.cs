@@ -151,8 +151,6 @@ namespace P002
                 Console.ReadLine();
                 Console.Clear(); 
         }
-
-            
         }
     }
 }
