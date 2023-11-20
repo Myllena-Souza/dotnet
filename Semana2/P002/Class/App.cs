@@ -11,7 +11,7 @@ namespace P002
         private void Criar ()
         {
         System.Console.WriteLine("Digite o titulo da tarefa: ");
-        string titulo = Console.ReadLine();
+        string  titulo = Console.ReadLine();
         System.Console.WriteLine("Digite uma descrição: ");
         string descricao = Console.ReadLine();
         System.Console.WriteLine("Digite o dia: ");
@@ -46,13 +46,12 @@ namespace P002
                 t.Print();
                 indice ++;
             }
-            
         }
         private void ListarConcluido(){
             Console.WriteLine("Aqui estão todas as tarefas concluídas: ");
             foreach ( Tarefa t in this.Tarefas)
             {
-                if(t.Conclusao)
+                if(t.getConclusao())
                 t.Print();
             }
         }
@@ -60,7 +59,7 @@ namespace P002
             Console.WriteLine("Aqui estão todas as tarefas não concluídas: ");
             foreach ( Tarefa t in this.Tarefas)
             {
-                if(!t.Conclusao)
+                if(!t.getConclusao())
                 t.Print();
             }
         }
@@ -68,25 +67,63 @@ namespace P002
             this.ListarTodos();
             Console.WriteLine("Qual tarefa gostaria de alterar a conclusao? Digite o número: ");
             int numero = int.Parse(Console.ReadLine());
-            this.Tarefas[numero].Conclusao = !this.Tarefas[numero].Conclusao;
+            this.Tarefas[numero].setConclusao(!this.Tarefas[numero].getConclusao());
             
         }
         private void Excluir(){
             this.ListarTodos();
             Console.WriteLine("Qual tarefa gostaria de excluir? Digite o número: ");
             int numero = int.Parse(Console.ReadLine());
-            this.Tarefas.RemoveAt(numero);
-            
+
+                if (numero >= 0 && numero < this.Tarefas.Count)
+                {
+                    this.Tarefas.RemoveAt(numero);
+                    Console.WriteLine("Tarefa removida com sucesso.");
+                }
+                    else
+                    {
+                    Console.WriteLine("O número de tarefa inválido. Nenhuma tarefa removida.");
+                    }
         }
         private void Pesquisar(){
-            
+        
+        Console.WriteLine("Digite o título da tarefa a ser pesquisada: ");
+        string termoPesquisa = Console.ReadLine();
+
+        bool encontrou = false;
+
+        foreach (Tarefa t in this.Tarefas)
+        {
+            if (t.getTitulo().ToLower().Contains(termoPesquisa.ToLower()))
+            {
+                Console.WriteLine("Tarefa encontrada:");
+                t.Print();
+                encontrou = true;
+            }
         }
+
+        if (!encontrou)
+        {
+            Console.WriteLine("Nenhuma tarefa encontrada com esse título.");
+         }
+        }
+
+ // Adicione outras estatísticas conforme necessário
+
         private void Estatisticas(){
-            
+
+            int totalTarefas = this.Tarefas.Count;
+            int tarefasConcluidas = this.Tarefas.Count(t => t.getConclusao());
+            int tarefasNaoConcluidas = totalTarefas - tarefasConcluidas;
+
+            Console.WriteLine($"Total de tarefas: {totalTarefas}");
+            Console.WriteLine($"Tarefas concluídas: {tarefasConcluidas}");
+            Console.WriteLine($"Tarefas não concluídas: {tarefasNaoConcluidas}");
         }
         public void Menu(){
-        while (true){
+            while (true){
 
+                Console.WriteLine("----------MENU---------");
                 Console.WriteLine("1. Criar Tarefa");
                 Console.WriteLine("2. Listar todas as tarefas");
                 Console.WriteLine("3. Listar tarefas concluidas");
@@ -150,7 +187,7 @@ namespace P002
                 Console.WriteLine("\nPressione Enter para continuar...");
                 Console.ReadLine();
                 Console.Clear(); 
-        }
+            }
         }
     }
 }
