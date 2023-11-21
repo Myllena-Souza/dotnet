@@ -46,7 +46,7 @@ Console.WriteLine($"Pessoas com o nome iniciado com '{letter}': {string.Join(", 
 */
 
 #region 
-List<int> list = new() {1, 2, 4, 5,};
+List<int> list = new() {1, 2, 4, 5};
 //pegando elemento da lista e multiplicando por ele mesmo
 var squaredList = list.Select(x => x * x);
 //imprimindo a lista original e lista atualizada
