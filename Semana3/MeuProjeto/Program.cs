@@ -52,5 +52,15 @@ var squaredList = list.Select(x => x * x);
 //imprimindo a lista original e lista atualizada
 Console.WriteLine($"Lista Original: {string.Join(", ", list)!}");
 Console.WriteLine($"Lista atualizada : {string.Join(", ", squaredList)}");
-var summerdList = list.Select((x,index) => x + squaredList.ElementAt)
+var summedList = list.Select((x,index) => x + squaredList.ElementAt(index));
+// esta somando a lista atualizada com a lista original
+Console.WriteLine($"Summed List: {string.Join(", ", summedList)}");
+
+//
+var listMultipleOfThree = list.Where(x => x % 3 == 0).ToList();
+listMultipleOfThree.AddRange(squaredList.Where(x => x % 3 == 0).ToList());
+listMultipleOfThree.AddRange(summedList.Where(x => x % 3 == 0).ToList());
+Console.WriteLine($"Lista Multiplicada por três: {string.Join(", ", listMultipleOfThree)}");
+Console.WriteLine($"Lista Multiplicada por três: {string.Join(", ", listMultipleOfThree.Order())}");
+
 #endregion
