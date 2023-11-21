@@ -44,7 +44,7 @@ System.Console.WriteLine($"Pessoas : {string.Join(", ", people)}");
 Console.WriteLine($"Pessoas com o nome iniciado com '{letter}': {string.Join(", ", people.Where(x => x.StartsWith(letter)))}");
 #endregion
 */
-
+/*
 #region 
 List<int> list = new() {1, 2, 4, 5};
 //pegando elemento da lista e multiplicando por ele mesmo
@@ -62,5 +62,39 @@ listMultipleOfThree.AddRange(squaredList.Where(x => x % 3 == 0).ToList());
 listMultipleOfThree.AddRange(summedList.Where(x => x % 3 == 0).ToList());
 Console.WriteLine($"Lista Multiplicada por três: {string.Join(", ", listMultipleOfThree)}");
 Console.WriteLine($"Lista Multiplicada por três: {string.Join(", ", listMultipleOfThree.Order())}");
+
+#endregion
+*/
+
+#region Exceptions Examples
+
+try{
+   // Code that may throw an exception
+   int result = Divide(10, 11);
+   Console.WriteLine($"Resultado: {result}");
+}
+catch (DivideByZeroException ex){
+   // Handle the specific exception
+   Console.WriteLine("Error: Cannot divide by zero");
+   Console.WriteLine(ex.Message);
+}
+catch (Exception ex){
+   // Handle any other exceptions
+   Console.WriteLine("An error occurred");
+   Console.WriteLine(ex.Message);
+}
+finally{
+   // Code that will always execute, regardless of whether an exception occurred or not
+   Console.WriteLine("Finally block executed");
+}
+
+int Divide(int a, int b){
+   if (b == 0)
+   {
+      // Throw a custom exception
+      throw new DivideByZeroException("Cannot divide by zero");
+   }
+   return a / b;
+}
 
 #endregion
