@@ -14,7 +14,7 @@ list.ForEach(x => Console.WriteLine($"Tuple 4: {x.id},{x.name}, {x.born.ToShortD
 #endregion
 */
 
-#region 
+/*#region 
 using System.Security.Cryptography;
 
 Console.WriteLine($"{CalcAge("Myllena", new DateTime(1996, 1, 23))}");
@@ -28,9 +28,29 @@ Console.WriteLine($"{CalcAge("Myllena", new DateTime(1996, 1, 23))}");
     // VERIFICANDO O DIA DE NASCIMENTO
     if (DateTime.Today.DayOfYear < BirthDate.DayOfYear);
         age--;
-        
+
     return (nome,age);
 }
 
 #endregion
+*/
+/*#region 
+string[] people = { "Myllena", "Carla", "Maria"};
 
+char letter = 'M'; 
+System.Console.WriteLine($"Pessoas : {string.Join(", ", people)}");
+
+//PEDINDO PRA MOSTRAR O NOME DAS PESSOAS QUE COMEÇA COM A LETRA M
+Console.WriteLine($"Pessoas com o nome iniciado com '{letter}': {string.Join(", ", people.Where(x => x.StartsWith(letter)))}");
+#endregion
+*/
+
+#region 
+List<int> list = new() {1, 2, 4, 5,};
+//pegando elemento da lista e multiplicando por ele mesmo
+var squaredList = list.Select(x => x * x);
+//imprimindo a lista original e lista atualizada
+Console.WriteLine($"Lista Original: {string.Join(", ", list)!}");
+Console.WriteLine($"Lista atualizada : {string.Join(", ", squaredList)}");
+var summerdList = list.Select((x,index) => x + squaredList.ElementAt)
+#endregion
