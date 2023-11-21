@@ -1,5 +1,5 @@
-﻿#region TiposDados
-    int tipoInteiro; //variavel inteiro
+﻿/* #region TiposDados
+     int tipoInteiro; //variavel inteiro
     double tipoDouble; //variavel double do decimal
     decimal tipoDecimal; //variavel decimal
     long tipoLong; //variavel long do inteiro
@@ -21,3 +21,4 @@
     Console.WriteLine($"Este valor {tipoLong} eh o maior Long possivel" );
 
     #endregion
+*/
