@@ -61,10 +61,11 @@ public class App
         int entrada = int.Parse(Console.ReadLine()!);
         Produto.Quantidade += entrada;
         //percorrendo a tupla
-        foreach (var produto in Produtos)
+
+        /*foreach (var produto in Produtos)
         {
             
-        }
+        }*/
 
     }
     private void AtualizarSaida ((string Codigo, string Nome, int Quantidade, double Preco) Produto){
@@ -90,63 +91,63 @@ public class App
     }
 
     public void Menu(){
-            while (true){
+        while (true){
 
-                Console.WriteLine("------------------------MENU----------------------");
-                Console.WriteLine("1. Cadastrar produto ");
-                Console.WriteLine("2. Consultar produto Pelo Código");
-                Console.WriteLine("3. Atualizar estoque de produtos");
-                Console.WriteLine("4. Listar Produto em Estoque");
-                Console.WriteLine("5. Listar Produto com valor Mínino e Máximo");
-                Console.WriteLine("6. Listar valor total do estoque e de produtos");
-                Console.WriteLine("0. Sair do programa");
-                Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("------------------------MENU----------------------");
+            Console.WriteLine("1. Cadastrar produto ");
+            Console.WriteLine("2. Consultar produto Pelo Código");
+            Console.WriteLine("3. Atualizar estoque de produtos");
+            Console.WriteLine("4. Listar Produto em Estoque");
+            Console.WriteLine("5. Listar Produto com valor Mínino e Máximo");
+            Console.WriteLine("6. Listar valor total do estoque e de produtos");
+            Console.WriteLine("0. Sair do programa");
+            Console.WriteLine("---------------------------------------------------");
 
-                Console.Write("Escolha uma opção: ");
+            Console.Write("Escolha uma opção: ");
                 string escolha = Console.ReadLine()!;
 
-                switch (escolha)
-                {
-                    case "1":
-                        Console.WriteLine("1. Cadastrar produto");
-                        this.Cadastro();
-                        break;
+            switch (escolha)
+            {
+                case "1":
+                    Console.WriteLine("1. Cadastrar produto");
+                    this.Cadastro();
+                    break;
 
-                    case "2":
-                        Console.WriteLine("Consultar produto Pelo Código: ");
-                        this.ConsultaPeloCodigo();
-                        break;
+                case "2":
+                    Console.WriteLine("Consultar produto Pelo Código: ");
+                    this.ConsultaPeloCodigo();
+                    break;
 
-                    case "3":
-                        Console.WriteLine("Atualizar estoque de produtos: ");
-                        this.AtualizarCodigo();
-                        break;
+                case "3":
+                    Console.WriteLine("Atualizar estoque de produtos: ");
+                    this.AtualizarCodigo();
+                    break;
 
-                    case "4":
-                        Console.WriteLine("Listar Produto em Estoque: ");
-                        this.ListarProdutoEstoq();
-                        break;
+                case "4":
+                    Console.WriteLine("Listar Produto em Estoque: ");
+                    this.ListarProdutoEstoq();
+                    break;
 
-                    case "5":
-                        Console.WriteLine("Listar Produto com valor Mínino e Máximo: ");
-                        this.ListarProdMinMax();
-                        break;
-                    case "6":
-                        Console.WriteLine("Listar valor total do estoque e de produtos: ");
-                        this.ListarValorTot();
-                        break;
-                    case "0":
-                        Console.WriteLine("Saindo do programa.");
-                        return; 
-                    default:
-                        Console.WriteLine("Escolha inválida. Tente novamente.");
-                        break;
-                }
-
-                Console.WriteLine("\nPressione Enter para continuar...");
-                Console.ReadLine();
-                Console.Clear(); 
+                case "5":
+                    Console.WriteLine("Listar Produto com valor Mínino e Máximo: ");
+                    this.ListarProdMinMax();
+                    break;
+                case "6":
+                    Console.WriteLine("Listar valor total do estoque e de produtos: ");
+                    this.ListarValorTot();
+                    break;
+                case "0":
+                    Console.WriteLine("Saindo do programa.");
+                    return; 
+                default:
+                    Console.WriteLine("Escolha inválida. Tente novamente.");
+                    break;
             }
+
+            Console.WriteLine("\nPressione Enter para continuar...");
+            Console.ReadLine();
+            Console.Clear(); 
         }
+    }
 }
 
