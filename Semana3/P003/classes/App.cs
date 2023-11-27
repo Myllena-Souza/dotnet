@@ -20,7 +20,7 @@ public class App
 
     private void Cadastro ()
     {
-        Console.WriteLine("Digite o código do produto");
+        Console.WriteLine("Digite o código do produto (Apenas número.)");
         string codigo = Console.ReadLine()!;
         Console.WriteLine("Digite o Nome do produto");
         string nome = Console.ReadLine()!;
@@ -74,10 +74,10 @@ public class App
         Console.WriteLine("Digite o código do produto que deseja atualizar");
         string codigo = Console.ReadLine()!;
         
-        Console.WriteLine("Digite a oção que deseja atualizar ");
+        Console.WriteLine("Digite a opção que deseja atualizar ");
         Console.WriteLine("-----------------------------------");
         Console.WriteLine("1. Atualizar entrada ");
-        Console.WriteLine("1. Atualizar saída ");
+        Console.WriteLine("2. Atualizar saída ");
         Console.WriteLine("-----------------------------------");
         string opcao = Console.ReadLine()!;
 
@@ -105,7 +105,7 @@ public class App
         if (index != -1){
             var prodAtualizado = (Produtos[index].Codigo, Produtos[index].Nome, Produtos[index].Quantidade + entrada, Produtos[index].Preco);
             Produtos[index] = prodAtualizado;
-            Console.WriteLine($"Entrada de {entrada} unidades realizada com sucesso. Estoque atual : {Produtos[index].Quantidade}");
+            Console.WriteLine($"Entrada de {entrada} unidades realizada com sucesso. Estoque atual : {Produtos[index].Quantidade}.");
         }
     }
     private void AtualizarSaida (string codigo)
@@ -133,13 +133,15 @@ public class App
         }
     }
     private void ListarProdutoEstoq(){
-        Console.WriteLine("Digite o limite inferior de quantidade: ");
+        Console.WriteLine("Digite a quantidade mínima de produto que deseja verificar no estoque. ");
         int limite = int.Parse(Console.ReadLine()!);
 
+        //quais os produtos que estão abaixo do limite que o usuario digita
+
         var prodAbaixoDoLimite = Produtos.Where(prod => prod.Quantidade < limite);
-        Console.WriteLine("Prduto com quantidade abaixo do limite: ");
+        Console.WriteLine("Produtos com quantidade abaixo do limite desejado: ");
         foreach (var produto in prodAbaixoDoLimite){
-            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Quantidade: {produto.Quantidade}, Preço: {produto.Preco}");
+            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Quantidade: {produto.Quantidade}, Preço: {produto.Preco}.");
         }   
     }
     private void ListarProdMinMax(){
@@ -152,29 +154,30 @@ public class App
 
         var prodEntreIntervalo = Produtos.Where (prod => prod.Preco >= min && prod.Preco <= max);
 
-        Console.WriteLine("Produtos no intern=valo de valores: ");
+        Console.WriteLine("Produtos no intervalo de valores: ");
         foreach (var produto in prodEntreIntervalo){
-            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Quantidade: {produto.Quantidade}, Preço: {produto.Preco}");   
+            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Quantidade: {produto.Quantidade}, Preço: {produto.Preco}.");   
         }
     }
     private void ListarValorTot(){
+
         double valorTotEstoq = Produtos.Sum(prod => prod.Quantidade * prod.Preco);
         Console.WriteLine($"Total do estoque {valorTotEstoq:C}");
 
         Console.WriteLine("Total por produto: ");
         foreach (var produto in Produtos){
-            double valorTotProdutos = produto.Quantidade * produto.Preco;
-            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Valor Total: {valorTotProdutos:C}");      
-        }
+                  
+        double valorTotProdutos = produto.Quantidade * produto.Preco;
+            Console.WriteLine($"Código: {produto.Codigo}, Nome: {produto.Nome}, Valor Total: {valorTotProdutos:C}.");
+        } 
     }
-
     public void Menu()
     {
         while (true){
 
-            Console.WriteLine("------------------------MENU----------------------");
+            Console.WriteLine("------------------------ESTOQUE----------------------");
             Console.WriteLine("1. Cadastrar produto. ");
-            Console.WriteLine("2. Consultar produto Pelo Código.");
+            Console.WriteLine("2. Consultar produto Pelo Código (Apenas número).");
             Console.WriteLine("3. Atualizar estoque de produtos.");
             Console.WriteLine("4. Listar Produto em Estoque.");
             Console.WriteLine("5. Listar Produto com valor Mínino e Máximo.");
@@ -190,7 +193,7 @@ public class App
                 switch (escolha)
                 {
                     case "1":
-                        Console.WriteLine("1. Cadastrar produto");
+                        Console.WriteLine("Cadastrar produto");
                         this.Cadastro();
                         break;
 
@@ -221,7 +224,7 @@ public class App
                         Console.WriteLine("Saindo do programa.");
                         return; 
                 default:
-                    Console.WriteLine("Escolha inválida. Tente novamente.");
+                    Console.WriteLine("Escolha inválida, tente novamente digitando uma dass opções acima.");
                     break;
                 }
 
