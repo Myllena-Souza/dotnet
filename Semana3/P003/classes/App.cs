@@ -173,13 +173,13 @@ public class App
         while (true){
 
             Console.WriteLine("------------------------MENU----------------------");
-            Console.WriteLine("1. Cadastrar produto ");
-            Console.WriteLine("2. Consultar produto Pelo Código");
-            Console.WriteLine("3. Atualizar estoque de produtos");
-            Console.WriteLine("4. Listar Produto em Estoque");
-            Console.WriteLine("5. Listar Produto com valor Mínino e Máximo");
-            Console.WriteLine("6. Listar valor total do estoque e de produtos");
-            Console.WriteLine("0. Sair do programa");
+            Console.WriteLine("1. Cadastrar produto. ");
+            Console.WriteLine("2. Consultar produto Pelo Código.");
+            Console.WriteLine("3. Atualizar estoque de produtos.");
+            Console.WriteLine("4. Listar Produto em Estoque.");
+            Console.WriteLine("5. Listar Produto com valor Mínino e Máximo.");
+            Console.WriteLine("6. Listar valor total do estoque e de produtos.");
+            Console.WriteLine("0. Sair do programa.");
             Console.WriteLine("---------------------------------------------------");
 
             Console.Write("Escolha uma opção: ");
